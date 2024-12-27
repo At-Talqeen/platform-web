@@ -9,12 +9,25 @@ import { toast } from 'react-toastify';
 const WaitList = () => {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false);
-  const [, setError] = useState("");
+  const [error, setError] = useState("");
 
+  const validateEmail = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if(loading) return;
+    e.preventDefault()
+    if (loading) return;
+    if (!email) {
+      setError('Email is required')
+      return;
+    }
+    if (!validateEmail()) {
+      setError('Enter a valid email')
+      return;
+    }
+
     setLoading(true);
     setError("");
 
@@ -38,10 +51,9 @@ const WaitList = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
-      } 
+        });
+      }
     } catch (err: any) {
-      console.error("Error:", err);
       setError(err.response?.data?.error || "An error occurred.");
     } finally {
       setLoading(false);
@@ -51,14 +63,32 @@ const WaitList = () => {
 
   }
   return (
-  <form
-    onSubmit={handleSubmit}
-    className='border w-full md:w-[572px] p-2 flex justify-between items-center bg-white rounded-md'>
-    <input type="email" 
-    value={email}
-    onChange={e => setEmail(e.target.value)} placeholder="Enter your email" className='flex-1 outline-0' />
-    <Button disabled={loading} type='submit' className='flex'>{loading ?<><Loader2  className="animate-spin" /><span>joining...</span> </>: 'Join Waitlist'}</Button>
-  </form>
+    <div>
+      {error && <span className='text-sm text-red-500'>{error}</span>}
+       <form
+      onSubmit={handleSubmit}
+      className={`border w-full md:w-[572px] p-2 flex justify-between items-center bg-white rounded-md ${error ? "border-red-500 text-red-500": "*:"}`}>
+      <input
+        value={email}
+        onChange={e => {
+          setEmail(e.target.value)
+          if(error){
+            setError('')
+          }
+        } } 
+        placeholder="Enter your email" className='flex-1 outline-0' />
+      <Button disabled={loading} type='submit' className='flex'>
+        {loading ?
+          <>
+            <Loader2 className="animate-spin" />
+            <span>joining...</span>
+          </>
+          : 'Join Waitlist'
+        }
+      </Button>
+    </form>
+    </div>
+   
   );
 };
 
