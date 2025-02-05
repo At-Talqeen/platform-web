@@ -1,34 +1,28 @@
-import Image from 'next/image';
-import QuranImg from '@/assets/quran.png'
-import InstructorCard from './InstructorCard';
-import WaitList from '@/app/forms/WaitList';
+import Image from "next/image";
+import QuranImg from "@/assets/quran.png";
+import InstructorCard from "./InstructorCard";
+import WaitList from "@/app/forms/WaitList";
+import BackGroundImage from "../../assets/backgroung-image.png";
 
 const LandingPage = () => {
-
-
   return (
-    <div className="h-[calc(100vh-80px)] bg-white relative">
-      <div className="flex justify-between py-16 w-full overflow-hidden  h-[calc(100vh-80px)]">
-      <section className='hidden lg:block w-[389px] h-[489px] -rotate-[25deg] -ml-20'>
-        <Image src={QuranImg} alt={'quran'} width={389} height={489} className=''/>   
-        </section>
-        <section className="flex-1 flex flex-col max-w-full items-center mb-12 md:mb-0 px-4 text-center">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold  lg:w-[828px] leading-tight mb-6 w-full text-center ">
-            Your Journey to Quran Memorization Made Simple
-          </h2>
-          <p className=" text-base md:text-lg text-gray-600 mb-8 max-w-[492px] px-4">
-          Learn at your own pace with flexible scheduling, easy progress tracking, 
-          and teacher support every step of the way.
-          </p>
-          <WaitList />
-        </section>
-        <section className='hidden lg:block  -mr-20 rotate-[17deg] w-[281px] h-[444px] pt-48'>
-          <InstructorCard />
-        </section>
-      
+    <div className="h-[100vh] bg-white relative">
+      <div className="h-full w-full">
+        <Image alt="backgroung-image" src={BackGroundImage} className="w-full h-full" />
       </div>
-
-
+      <div className="absolute top-[22vh] px-6 py-4 md:px-12 lg:px-16 xl:px-[80px] 2xl:px-[100px]">
+        <span className="border-yellow-300 border">
+          <h2 className="font-bold text-[32px] leading-[40px]  md:text-[47px] md:leading-[55px] xl:text-[58px] 2xl:leading-[78.4px] 2xl:text-[64px] text-[#101828] font-plus">Your Journey to Qur'an </h2>
+          <h2 className="font-bold text-[32px] leading-[40px]  md:text-[47px] md:leading-[55px] xl:text-[58px] 2xl:leading-[78.4px] 2xl:text-[64px] text-[#101828] font-plus">Memorization Made Simple</h2>
+        </span>
+        <span className="">
+          <p className="text-[#475467] text-sm md:text-base font-plus">Learn at your own pace with flexible scheduling, easy progress </p>
+          <p className="text-[#475467] text-sm md:text-base font-plus">tracking, and teacher support every step of the way.</p>
+        </span>
+        <button className="bg-[#0DAC5C] text-white p-3 rounded-[8px] text-sm md:text-base hover:bg-green-700 font-semibold mt-11 w-[100px] md:w-[124px]">
+          Enroll Now
+        </button>
+      </div>
     </div>
   );
 };
