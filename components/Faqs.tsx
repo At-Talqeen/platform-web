@@ -43,7 +43,7 @@ const Faqs = () => {
   ];
 
   return (
-    <div className=" px-6 py-16 md:px-12 xl:px-[80px] 2xl:px-[100px] flex flex-col md:flex-row justify-center my-24 gap-x-16">
+    <div className=" px-6 py-16 md:px-12 xl:px-[80px] 2xl:px-[100px] flex flex-col md:flex-row gap-y-8 justify-center my-24 gap-x-16">
       <div className=" w-full md:w-[44%] lg:w-[40%] xl:w-[35%] 2xl:w-[40%] flex flex-col">
         <p className="text-[#0DAC5C] font-inter font-medium text-sm lg:text-base">
           Got Questions?
