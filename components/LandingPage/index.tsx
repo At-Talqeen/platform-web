@@ -2,7 +2,7 @@ const LandingPage = () => {
   return (
     <div className="h-[100vh] bg-white relative">
       <div className="h-full w-full ">
-        <video autoPlay muted loop className="w-[100vw] h-full object-cover">
+        <video autoPlay muted loop playsInline className="w-[100vw] h-full object-cover" controls={false}>
           <source src="./back-video.mp4" type="video/mp4" />
         </video>
         {/* <Image
