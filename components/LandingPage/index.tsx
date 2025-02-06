@@ -1,13 +1,9 @@
-import Image from "next/image";
-import BackGroundImage from "../../assets/backgroung-image.png";
-
-
 const LandingPage = () => {
   return (
     <div className="h-[100vh] bg-white relative">
       <div className="h-full w-full ">
         <video autoPlay muted loop className="w-[100vw] h-full object-cover">
-        <source src="./back-video.mp4" type="video/mp4" />
+          <source src="./back-video.mp4" type="video/mp4" />
         </video>
         {/* <Image
           alt="backgroung-image"

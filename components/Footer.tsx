@@ -2,18 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Logo from "@/assets/logo.svg";
 
-// import { HiArrowNarrowRight } from "react-icons/hi";
-// import Apple from "@/assets/appleLogo.png";
-// import Playstore from "@/assets/playstoreLogo.png";
-// import Facebook from "@/assets/facebook.png";
-// import LinkedIn from "@/assets/linkedIn.png";
-// import Insta from "@/assets/insta.png";
-// import Twitter from "@/assets/twitter.png";
-// import DownloadBtn from "./DownloadBtn";
-// import Call from "@/assets/Call.svg";
-// import Location from "@/assets/location.svg";
-// import { MdLocationOn } from "react-icons/md";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
