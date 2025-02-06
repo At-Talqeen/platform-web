@@ -53,12 +53,12 @@ const Faqs = () => {
         </h2>
         <p className="mt-3 font-inter font-normal text-[#344054] text-sm lg:text-base">
           Have a question and don't see the answer below? Feel free to email us
-          at <span className="text-[#0DAC5C]">support@attalqeen.com</span>
+          at <span className="text-[#0DAC5C]">support@attalqeen.com</span>
         </p>
       </div>
       <div className="flex flex-col w-full md:w-[50%]">
         <div className="w-full mx-auto">
-          {arr.map(({ text, title, no }, index) => {
+          {arr.map(({ text, title}, index) => {
             return (
               <div
                 key={index}

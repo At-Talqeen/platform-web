@@ -33,12 +33,12 @@ const Features = () => {
             </h4>
             <p className="text-[#475467] font-inter font-normal mt-3 xl:text-base lg:text-sm text-xs">
               Stay motivated with a progress tracker that helps you see exactly
-              how far you've come. Watch your progress grow, step by step, at
+              how far you've come.Watch your progress grow, step by step, at
               your own pace.
             </p>
           </div>
         </div>
-        <div className="  bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[500px] md:h-[450px] h-[420px] flex flex-col justify-between  gap-5 xl:py-10 lg:py-7 py-5 ">
+        <div className="bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[500px] md:h-[450px] h-[420px] flex flex-col justify-between  gap-5 xl:py-10 lg:py-7 py-5 ">
           <div className=" flex justify-end mt-7 h-[230px] md:h-[250px] lg:h-[230px] xl:h-[320px] ">
             <Image
               alt="feat-schedule"
