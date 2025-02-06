@@ -21,21 +21,36 @@ const Features = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5 my-12">
         <div className="  bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[500px] md:h-[450px] h-[420px] flex flex-col justify-between items-center gap-5 xl:py-10 lg:py-7 py-5 xl:px-8 md:px-6 px-5">
           <div className=" overflow-hidden h-[240px] md:h-[310px] lg:h-[230px] xl:h-[320px]">
-            <Image alt="feat-schedule" src={FeatSchedule} className="w-[250px] lg:w-[260px] md:w-[330px] xl:w-[338px]"/>
+            <Image
+              alt="feat-schedule"
+              src={FeatSchedule}
+              className="w-[250px] lg:w-[260px] md:w-[330px] xl:w-[338px]"
+            />
           </div>
-          <div className="">
-            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">Flexible Class Scheduling</h4>
+          <div>
+            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">
+              Flexible Class Scheduling
+            </h4>
             <p className="text-[#475467] font-inter font-normal mt-3 xl:text-base lg:text-sm text-xs">
-            Stay motivated with a progress tracker that helps you see exactly how far you've come. Watch your progress grow, step by step, at your own pace.
+              Stay motivated with a progress tracker that helps you see exactly
+              how far you've come. Watch your progress grow, step by step, at
+              your own pace.
             </p>
           </div>
         </div>
         <div className="  bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[500px] md:h-[450px] h-[420px] flex flex-col justify-between  gap-5 xl:py-10 lg:py-7 py-5 ">
           <div className=" flex justify-end mt-7 h-[230px] md:h-[250px] lg:h-[230px] xl:h-[320px] ">
-            <Image alt="feat-schedule" src={FeatProgress} className="w-[85%] xl:w-[80%]" width={700}/>
+            <Image
+              alt="feat-schedule"
+              src={FeatProgress}
+              className="w-[85%] xl:w-[80%]"
+              width={700}
+            />
           </div>
           <div className="xl:px-8 md:px-6 px-5">
-            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">Personalized Progress Tracking</h4>
+            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">
+              Personalized Progress Tracking
+            </h4>
             <p className="text-[#475467] font-inter font-normal mt-3 xl:text-base lg:text-sm text-xs">
               Life’s busy, we get it. That’s why you can schedule your classes
               at times that work best for you. Just choose an available slot,
@@ -46,31 +61,49 @@ const Features = () => {
 
         <div className="  bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[500px] md:h-[450px] h-[420px] flex flex-col justify-between items-center gap-5 xl:py-10 lg:py-7 py-5 xl:px-8 md:px-6 px-5">
           <div className=" overflow-hidden h-[210px] md:h-[260px] lg:h-[240px] xl:h-[289px] mt-4">
-            <Image alt="feat-schedule" src={FeatRecords} className="w-[300px] lg:w-[340px] md:w-[380px] xl:w-[434px]"/>
+            <Image
+              alt="feat-schedule"
+              src={FeatRecords}
+              className="w-[300px] lg:w-[340px] md:w-[380px] xl:w-[434px]"
+            />
             {/* <FeatRecords/> */}
           </div>
           <div className="">
-            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">Access to Class Recordings</h4>
+            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">
+              Access to Class Recordings
+            </h4>
             <p className="text-[#475467] font-inter font-normal mt-3 xl:text-base lg:text-sm text-xs">
-            Missed a session or need a refresher? No problem! All classes are recorded, so you can rewatch any time you like and never miss a thing.
+              Missed a session or need a refresher? No problem! All classes are
+              recorded, so you can rewatch any time you like and never miss a
+              thing.
             </p>
           </div>
         </div>
 
         <div className="  bg-[#F9FAFB] rounded-[24px] border border-[#EAECF0] xl:h-[580px] lg:h-[520px] md:h-[470px] h-[420px] flex flex-col justify-between items-center gap-5 xl:py-10 lg:py-7 py-5 xl:px-8 md:px-6 px-5">
           <div className="flex  items-end justify-center flex-row gap-5 w-[250px] lg:w-[370px] md:w-[360px] xl:w-[434px] h-[210px] md:h-[230px] lg:h-[210px] xl:h-[260px] mt-6 ">
-            <Image alt="feat-schedule" src={FeatTeacher2} className="w-[50%] "/>
-            <Image alt="feat-schedule" src={FeatTeacher1} className="w-[50%] "/>
-
+            <Image
+              alt="feat-schedule"
+              src={FeatTeacher2}
+              className="w-[50%] "
+            />
+            <Image
+              alt="feat-schedule"
+              src={FeatTeacher1}
+              className="w-[50%] "
+            />
           </div>
           <div className="">
-            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">Dedicated Teacher Support</h4>
+            <h4 className="text-[#101828] font-plus font-semibold xl:text-[30px] xl:leading-[38px] lg:text-[24px] lg:leading-[33px] md:text-lg text-base">
+              Dedicated Teacher Support
+            </h4>
             <p className="text-[#475467] font-inter font-normal mt-3 xl:text-base lg:text-sm text-xs">
-            Our teachers are here to help, whether it’s during a class or whenever you have questions. They’re dedicated to making sure you succeed.
+              Our teachers are here to help, whether it’s during a class or
+              whenever you have questions. They’re dedicated to making sure you
+              succeed.
             </p>
           </div>
         </div>
-      
       </div>
     </div>
   );

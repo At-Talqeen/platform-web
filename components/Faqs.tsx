@@ -2,7 +2,8 @@
 import React from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 const Faqs = () => {
-  const [selected, setselected] = React.useState<any | number>(0);
+  const [selected, setselected] = React.useState<number | null>(0);
+
   const arr = [
     {
       no: "01",
@@ -35,23 +36,28 @@ const Faqs = () => {
       text: "Yes! You can use the platform on your phone, tablet, or computer, so you can learn anywhere that works best for you",
     },
     {
-        no: "01",
-        title: "Can I connect with my teacher outside of class?",
-        text: "Of course! Your teacher is here to support you, and we’ve made it easy for you to stay connected. You can reach out to them for extra help or guidance when you need it.",
-      },
+      no: "01",
+      title: "Can I connect with my teacher outside of class?",
+      text: "Of course! Your teacher is here to support you, and we’ve made it easy for you to stay connected. You can reach out to them for extra help or guidance when you need it.",
+    },
   ];
 
   return (
     <div className=" px-6 py-16 md:px-12 xl:px-[80px] 2xl:px-[100px] flex flex-col md:flex-row justify-center my-24 gap-x-16">
       <div className=" w-full md:w-[44%] lg:w-[40%] xl:w-[35%] 2xl:w-[40%] flex flex-col">
-        <p className="text-[#0DAC5C] font-inter font-medium text-sm lg:text-base">Got Questions?</p>
+        <p className="text-[#0DAC5C] font-inter font-medium text-sm lg:text-base">
+          Got Questions?
+        </p>
         <h2 className="text-[32px] leading-[40px] font-semibold text-[#101828] font-plus md:text-[47px] md:leading-[55px] xl:text-[58px] 2xl:leading-[78.4px] 2xl:text-[64px]">
           Frequently Asked Questions
         </h2>
-        <p className="mt-3 font-inter font-normal text-[#344054] text-sm lg:text-base">Have a question and don't see the answer below? Feel free to email us at <span className="text-[#0DAC5C]">support@attalqeen.com</span></p>
+        <p className="mt-3 font-inter font-normal text-[#344054] text-sm lg:text-base">
+          Have a question and don't see the answer below? Feel free to email us
+          at <span className="text-[#0DAC5C]">support@attalqeen.com</span>
+        </p>
       </div>
-      <div className="flex flex-col w-full md:w-[50%] ">
-        <div className="w-full mx-auto ">
+      <div className="flex flex-col w-full md:w-[50%]">
+        <div className="w-full mx-auto">
           {arr.map(({ text, title, no }, index) => {
             return (
               <div
