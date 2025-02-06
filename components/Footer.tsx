@@ -26,7 +26,7 @@ const Footer = () => {
             </span>
           </div>
 
-          <div className="flex flex-row flex-wrap justify-between gap-y-5  lg:w-[70%] w-full md:px-10 lg:px-14 xl:px-20">
+          <div className=" grid grid-cols-1 md:flex flex-row flex-wrap justify-between gap-y-5  lg:w-[70%] w-full md:px-10 lg:px-14 xl:px-20">
             <div>
               <h3 className="font-semibold md:text-base text-sm font-inter mb-4 text-[#101828]">
                 Quicklink
@@ -82,17 +82,17 @@ const Footer = () => {
 
               <ul className="space-y-2">
                 <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
-                  <Link href={"#"} className="cursor-pointer no-underline">
-                    Facebook
+                  <Link href={"https://www.tiktok.com/@attalqeeninstitute?_t=ZM-8tguQ0y8msn&_r=1"} className="cursor-pointer no-underline">
+                    Tiktok
                   </Link>
                 </li>
-                <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
+                {/* <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
                   <Link href={"#"} className="cursor-pointer no-underline">
                     X (formerly Twitter)
                   </Link>
-                </li>
+                </li> */}
                 <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
-                  <Link href={"#"} className="cursor-pointer no-underline">
+                  <Link href={"https://www.instagram.com/attalqeeninstitute?igsh=MWVna29sMGV3eDFxbg%3D%3D&utm_source=qr"} className="cursor-pointer no-underline">
                     Instagram
                   </Link>
                 </li>
