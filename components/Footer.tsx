@@ -70,9 +70,9 @@ const Footer = () => {
 
               <ul className="space-y-2">
                 <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
-                  <Link href={"https://www.tiktok.com/@attalqeeninstitute?_t=ZM-8tguQ0y8msn&_r=1"} className="cursor-pointer no-underline">
+                  <a target="_blank" href={"https://www.tiktok.com/@attalqeeninstitute?_t=ZM-8tguQ0y8msn&_r=1"} className="cursor-pointer no-underline">
                     Tiktok
-                  </Link>
+                  </a>
                 </li>
                 {/* <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
                   <Link href={"#"} className="cursor-pointer no-underline">
@@ -80,9 +80,9 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li className="text-[#475467] font-normal md:text-base text-sm  font-inter ">
-                  <Link href={"https://www.instagram.com/attalqeeninstitute?igsh=MWVna29sMGV3eDFxbg%3D%3D&utm_source=qr"} className="cursor-pointer no-underline">
+                  <a target="_blank" href={"https://www.instagram.com/attalqeeninstitute?igsh=MWVna29sMGV3eDFxbg%3D%3D&utm_source=qr"} className="cursor-pointer no-underline">
                     Instagram
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
