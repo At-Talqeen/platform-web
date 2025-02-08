@@ -1,4 +1,8 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 const LandingPage = () => {
+  const router = useRouter()
   return (
     <div className="h-[100vh] bg-white relative">
       <div className="h-full w-full ">
@@ -28,7 +32,9 @@ const LandingPage = () => {
             tracking, and teacher support every step of the way.
           </p>
         </span>
-        <button className="bg-[#0DAC5C] text-white p-3 rounded-[8px] text-sm md:text-base hover:bg-green-700 font-semibold mt-11 w-[100px] md:w-[124px]">
+        <button className="bg-[#0DAC5C] text-white p-3 rounded-[8px] text-sm md:text-base hover:bg-green-700 font-semibold mt-11 w-[100px] md:w-[124px]"
+        onClick={() => router.push("/signup")}
+        >
           Enroll Now
         </button>
       </div>

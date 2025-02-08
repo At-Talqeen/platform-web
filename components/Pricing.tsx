@@ -2,8 +2,10 @@
 import React from "react";
 import CheckMark from "../assets/checkmark.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Pricing = () => {
+  const router = useRouter();
   const [plan, setPlan] = React.useState("Monthly");
   const Monthly = [
     "Unlimited access to live classes",
@@ -56,18 +58,25 @@ const Pricing = () => {
                 <h3 className="font-bold font-plus xl:text-6xl lg:text-4xl text-3xl text-[#101828]">
                   $40
                 </h3>
-                <p className="font-plus lg:text-xl md:text-lg text-base text-[#475467]">/monthly</p>
+                <p className="font-plus lg:text-xl md:text-lg text-base text-[#475467]">
+                  /monthly
+                </p>
               </span>
             ) : (
               <span className="flex items-baseline">
                 <h3 className="font-bold font-plus xl:text-6xl lg:text-4xl text-3xl text-[#101828]">
                   $35
                 </h3>
-                <p className="font-plus lg:text-xl md:text-lg text-base text-[#475467]">/quarterly</p>
+                <p className="font-plus lg:text-xl md:text-lg text-base text-[#475467]">
+                  /quarterly
+                </p>
               </span>
             )}
 
-            <button className="bg-[#0DAC5C] text-white p-3 rounded-[8px] hover:bg-green-700  font-semibold w-full">
+            <button
+              className="bg-[#0DAC5C] text-white p-3 rounded-[8px] hover:bg-green-700  font-semibold w-full"
+              onClick={() => router.push("/signup")}
+            >
               Get Started
             </button>
           </div>
@@ -77,7 +86,9 @@ const Pricing = () => {
                 <div className="lg:w-6 lg:h-6 h-4 w-4">
                   <Image alt="check-mark.png" src={CheckMark} />
                 </div>
-                <p className="font-inter text-[#475467] lg:text-base text-sm ">{item}</p>
+                <p className="font-inter text-[#475467] lg:text-base text-sm ">
+                  {item}
+                </p>
               </div>
             ))}
           </div>

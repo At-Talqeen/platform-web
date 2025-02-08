@@ -1,44 +1,50 @@
+"use client";
 import AboutUs from "@/components/AboutUs";
 import Benefit from "@/components/Benefit";
 import Faqs from "@/components/Faqs";
 import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 import Journey from "@/components/Journey";
 import LandingPage from "@/components/LandingPage";
 import Pricing from "@/components/Pricing";
 import Verses from "@/components/Verses";
+import { usePathname, useRouter } from "next/navigation";
+
 export default function Home() {
+  const path = usePathname();
+
   return (
     <div>
       <div id="home">
-
-      <LandingPage />
+        <LandingPage />
       </div>
       <div className="my-20">
         <AboutUs />
       </div>
       <div className="my-20" id="features">
-        <Features/>
+        <Features />
       </div>
 
       <div className="my-20" id="benefits">
-        <Benefit/>
+        <Benefit />
       </div>
 
       <div className="my-20">
-        <Verses/>
+        <Verses />
       </div>
 
       <div className="my-20" id="pricing">
-        <Pricing/>
+        <Pricing />
       </div>
 
       <div className="my-20" id="faqs">
-        <Faqs/>
+        <Faqs />
       </div>
 
       <div className="my-20">
-        <Journey/>
+        <Journey />
       </div>
+      {!path.includes("/signup") && <Footer />}
     </div>
   );
 }
