@@ -8,7 +8,7 @@ import Journey from "@/components/Journey";
 import LandingPage from "@/components/LandingPage";
 import Pricing from "@/components/Pricing";
 import Verses from "@/components/Verses";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname} from "next/navigation";
 
 export default function Home() {
   const path = usePathname();

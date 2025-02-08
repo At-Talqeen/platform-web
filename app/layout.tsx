@@ -3,7 +3,6 @@ import { Geist_Mono , Plus_Jakarta_Sans, Inter} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import { ToastContainer } from 'react-toastify';
-import Footer from "@/components/Footer";
 
 const plusJakarta_Sans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
