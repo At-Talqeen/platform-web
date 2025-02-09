@@ -13,7 +13,6 @@ import { Loader2 } from 'lucide-react';
 const Page = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -118,7 +117,7 @@ const Page = () => {
           });
       }
     } catch (err: any) {
-      toast(err.response?.data?.error || "An error occurred.", {
+      toast(err?.response?.data?.error || "An error occurred.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
