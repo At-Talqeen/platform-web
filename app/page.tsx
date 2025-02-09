@@ -12,7 +12,8 @@ import { usePathname} from "next/navigation";
 
 export default function Home() {
   const path = usePathname();
-
+ 
+  
   return (
     <div>
       <div id="home">

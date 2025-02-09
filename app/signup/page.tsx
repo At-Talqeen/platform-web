@@ -1,13 +1,24 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import SignUpImage from "@/assets/signup.png";
 import Image from "next/image";
 import Calendar from "@/assets/caledar-dark.svg";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import GoogleIcon from "@/assets/google-icon.svg";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from 'lucide-react';
+
 
 const Page = () => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const validateEmail = () => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(userDetails?.email);
+  };
   const [userDetails, setUserDetails] = React.useState({
     firstName: "",
     lastName: "",
@@ -17,6 +28,111 @@ const Page = () => {
     dob: "",
     password: "",
   });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+
+    if (
+      !userDetails?.email ||
+      userDetails?.country?.length < 2 ||
+      !userDetails?.dob ||
+      userDetails?.firstName?.length < 2 ||
+      userDetails?.lastName?.length < 2 ||
+      !userDetails?.gender ||
+      userDetails?.password?.length < 4
+    ) {
+      toast("All fields are required", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    if (!validateEmail()) {
+      toast("Enter a valid email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "/api/save-to-sheet",
+        {
+          Email: userDetails?.email,
+          Date: new Date().toISOString().split("T")[0], // Format: YYYY-MM-DD
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.data.success) {
+        toast("🦄 You have joined the waitlist!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setUserDetails({
+            firstName: "",
+            lastName: "",
+            email: "",
+            gender: "",
+            country: "",
+            dob: "",
+            password: "",
+          });
+      } else{
+        toast("Failed to join the waitlist", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+      }
+    } catch (err: any) {
+      toast(err.response?.data?.error || "An error occurred.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } finally {
+      setLoading(false);
+     
+    }
+  };
 
   React.useEffect(() => {}, [userDetails]);
 
@@ -51,7 +167,10 @@ const Page = () => {
             Welcome! Please fill in the details to get started.
           </p>
         </div>
-        <form className="lg:w-[67%] w-[85%] flex-col flex 2xl:gap-y-6 xl:gap-y-4 lg:gap-y-2 gap-y-3 xl:mt-5 mt-3">
+        <form
+          className="lg:w-[67%] w-[85%] flex-col flex 2xl:gap-y-6 xl:gap-y-4 lg:gap-y-2 gap-y-3 xl:mt-5 mt-3"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-row justify-between">
             <span className="w-[48%] flex flex-col xl:gap-2 gap-1">
               <label
@@ -182,6 +301,7 @@ const Page = () => {
                 placeholder="Date of birth"
                 className={`w-full h-full bg-transparent appearance-none outline-none xl:text-sm text-xs`}
                 value={userDetails?.dob}
+                max={new Date().toISOString().split("T")[0]} // Sets max to today
                 onChange={(e) => {
                   setUserDetails({ ...userDetails, dob: e.target.value });
                 }}
@@ -221,16 +341,20 @@ const Page = () => {
               </div>
             </div>
           </span>
-
-          <button
-            className="bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <Button disabled={loading} type="submit" className="flex bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1">
+            {loading ? (
+              <>
+                <Loader2 className="animate-spin" />
+              </>
+            ) : (
+              "Sign Up"
+            )}
+          </Button>
+          {/* <button className="bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1">
             Sign Up
-          </button>
-          <button
+          </button> */}
+
+          {/* <button
             className="border border-[#D0D5DD]  xl:p-3 p-2 rounded-[8px] flex flex-row justify-center items-center gap-2 font-semibold w-full mb-10 lg:mb-0"
             onClick={(e) => {
               e.preventDefault();
@@ -240,7 +364,7 @@ const Page = () => {
             <p className="text-[#344054] text-sm xl:text-base font-semibold">
               Continue with Google
             </p>
-          </button>
+          </button> */}
         </form>
       </div>
     </div>
