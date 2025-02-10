@@ -14,6 +14,9 @@ const Page = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
 
+ 
+
+
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(userDetails?.email);
@@ -27,6 +30,7 @@ const Page = () => {
     dob: "",
     password: "",
   });
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,6 +79,12 @@ const Page = () => {
         "/api/save-to-sheet",
         {
           Email: userDetails?.email,
+          FirstName : userDetails?.firstName,
+          LastName : userDetails?.lastName,
+          Gender: userDetails?.gender,
+          Country: userDetails?.country,
+          Dob: userDetails?.dob,
+          Password: userDetails?.password,
           Date: new Date().toISOString().split("T")[0], // Format: YYYY-MM-DD
         },
         {
@@ -300,7 +310,6 @@ const Page = () => {
                 placeholder="Date of birth"
                 className={`w-full h-full bg-transparent appearance-none outline-none xl:text-sm text-xs`}
                 value={userDetails?.dob}
-                max={new Date().toISOString().split("T")[0]} // Sets max to today
                 onChange={(e) => {
                   setUserDetails({ ...userDetails, dob: e.target.value });
                 }}

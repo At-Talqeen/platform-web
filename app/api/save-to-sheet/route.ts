@@ -27,7 +27,16 @@ export async function POST(req: Request) {
       range:'A1:B1',
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[data.Email, data.Date]],
+        values: [[data.Email, 
+          data.FirstName ,
+          data.LastName ,
+          data.Gender,
+          data.Country,
+          data.Dob,
+          data.Password,
+          data.Date
+        
+        ]],
       },
     });
 
