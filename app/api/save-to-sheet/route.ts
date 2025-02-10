@@ -32,7 +32,7 @@ export async function POST(req: Request) {
           data.LastName ,
           data.Phone,
           data.Gender,
-          data.Country,
+          data.Location,
           data.Dob,
           data.Password,
           data.Date

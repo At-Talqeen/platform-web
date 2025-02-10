@@ -85,7 +85,7 @@ const Page = () => {
           LastName : userDetails?.lastName,
           Phone: userDetails?.phone,
           Gender: userDetails?.gender,
-          Country: userDetails?.country,
+          Location: userDetails?.country,
           Dob: userDetails?.dob,
           Password: userDetails?.password,
           Date: new Date().toISOString().split("T")[0], // Format: YYYY-MM-DD
