@@ -177,7 +177,7 @@ const Page = () => {
           </p>
         </div>
         <form
-          className="lg:w-[67%] w-[85%] flex-col flex 2xl:gap-y-6 xl:gap-y-4 lg:gap-y-2 gap-y-3 xl:mt-5 mt-3"
+          className="lg:w-[67%] w-[85%] flex-col flex 2xl:gap-y-6 xl:gap-y-4 lg:gap-y-2 gap-y-3 xl:mt-5 mt-3 mb-14 lg:mb-0"
           onSubmit={handleSubmit}
         >
           <div className="flex flex-row justify-between">
