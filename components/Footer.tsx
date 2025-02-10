@@ -104,7 +104,7 @@ const Footer = () => {
             <p className="text-[#344054] font-normal font-inter">Terms of Service</p>
           </div>
         </div>
-        <div className="flex fle-col lg:hidden gap-3">
+        <div className="flex fle-col lg:hidden gap-3 mb-4">
             <p className="text-[#344054] font-normal font-inter text-sm">Privacy Policy</p>
             <p className="text-[#344054] font-normal font-inter text-sm">Terms of Service</p>
           </div>
