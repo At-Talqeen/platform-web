@@ -30,6 +30,7 @@ export async function POST(req: Request) {
         values: [[data.Email, 
           data.FirstName ,
           data.LastName ,
+          data.Phone,
           data.Gender,
           data.Country,
           data.Dob,

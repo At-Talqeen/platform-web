@@ -29,6 +29,7 @@ const Page = () => {
     country: "",
     dob: "",
     password: "",
+    phone:""
   });
 
 
@@ -43,6 +44,7 @@ const Page = () => {
       userDetails?.firstName?.length < 2 ||
       userDetails?.lastName?.length < 2 ||
       !userDetails?.gender ||
+      userDetails?.phone.length < 11 ||
       userDetails?.password?.length < 4
     ) {
       toast("All fields are required", {
@@ -81,6 +83,7 @@ const Page = () => {
           Email: userDetails?.email,
           FirstName : userDetails?.firstName,
           LastName : userDetails?.lastName,
+          Phone: userDetails?.phone,
           Gender: userDetails?.gender,
           Country: userDetails?.country,
           Dob: userDetails?.dob,
@@ -113,6 +116,7 @@ const Page = () => {
             country: "",
             dob: "",
             password: "",
+            phone:""
           });
       } else{
         toast("Failed to join the waitlist", {
@@ -173,7 +177,7 @@ const Page = () => {
             Create your account
           </h2>
           <p className="text-[#667085] font-inter xl:text-base text-xs">
-            Welcome! Please fill in the details to get started.
+          As Salaam Alaikum! Please fill in the details to get started.
           </p>
         </div>
         <form
@@ -233,6 +237,24 @@ const Page = () => {
               value={userDetails?.email}
               onChange={(e) => {
                 setUserDetails({ ...userDetails, email: e.target.value });
+              }}
+            />
+          </span>
+          <span className=" flex flex-col xl:gap-2 gap-1">
+            <label
+              htmlFor="#phone"
+              className="font-medium font-inter text-[#344054] xl:text-sm text-xs"
+            >
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Phone"
+              className="xl:h-[44px] lg:h-[40px] h-[35px] rounded-[6px] border border-[#D0D5DD] px-[14px] py-[8px] xl:text-sm text-xs font-inter outline-none"
+              value={userDetails?.phone}
+              onChange={(e) => {
+                setUserDetails({ ...userDetails, phone: e.target.value });
               }}
             />
           </span>

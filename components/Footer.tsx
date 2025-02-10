@@ -59,6 +59,13 @@ const Footer = () => {
                   <Link href="mailto:attalqeeninstitute@gmail.com" className="cursor-pointer no-underline">
                     attalqeeninstitute@gmail.com
                   </Link>
+
+                </li>
+                <li className="text-[#475467] font-normal md:text-base text-sm font-inter ">
+                  <Link href="tel:+447507398641" className="cursor-pointer no-underline">
+                    +447507398641
+                  </Link>
+
                 </li>
               </ul>
             </div>
@@ -97,7 +104,10 @@ const Footer = () => {
             <p className="text-[#344054] font-normal font-inter">Terms of Service</p>
           </div>
         </div>
-
+        <div className="flex fle-col lg:hidden gap-3">
+            <p className="text-[#344054] font-normal font-inter text-sm">Privacy Policy</p>
+            <p className="text-[#344054] font-normal font-inter text-sm">Terms of Service</p>
+          </div>
         <p className="text-[344054] font-normal font-inter lg:hidden text-sm">
           Copyright © {currentYear} At Talqeen. All rights reserved.
         </p>
