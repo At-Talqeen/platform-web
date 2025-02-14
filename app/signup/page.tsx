@@ -9,6 +9,8 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css'
+
 
 const Page = () => {
   // const [showPassword, setShowPassword] = React.useState(false);
@@ -77,7 +79,7 @@ const Page = () => {
           Email: userDetails?.email,
           FirstName: userDetails?.firstName,
           LastName: userDetails?.lastName,
-          Phone: userDetails?.phone,
+          Phone: `+${userDetails?.phone}`,
           Gender: userDetails?.gender,
           Location: userDetails?.country,
           Dob: userDetails?.dob,
@@ -148,6 +150,7 @@ const Page = () => {
   };
 
   React.useEffect(() => {
+    // console.log(userDetails);
     
   }, [userDetails]);
 
@@ -270,9 +273,16 @@ const Page = () => {
             <div className="xl:h-[44px] lg:h-[40px] h-[35px] rounded-[6px] border border-[#D0D5DD] px-2">
               <PhoneInput
                 value={userDetails?.phone}
-                onChange={handlePhoneChange}
-                enableSearch
+                onChange={(value) => {
+                  setUserDetails({ ...userDetails, phone: value });
+                }}
                 placeholder="Enter phone number"
+                disableSearchIcon
+                showDropdown
+                dropdownStyle={{
+                  backgroundColor:"white"
+                }}
+                
                 inputStyle={{
                   width: "100%",
                   height: "100%",
