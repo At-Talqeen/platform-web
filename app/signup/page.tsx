@@ -7,15 +7,12 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from 'lucide-react';
-
+import { Loader2 } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
 
 const Page = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
-
- 
-
 
   const validateEmail = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,10 +25,8 @@ const Page = () => {
     gender: "",
     country: "",
     dob: "",
-    password: "",
-    phone:""
+    phone: "",
   });
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,8 +39,7 @@ const Page = () => {
       userDetails?.firstName?.length < 2 ||
       userDetails?.lastName?.length < 2 ||
       !userDetails?.gender ||
-      userDetails?.phone.length < 11 ||
-      userDetails?.password?.length < 4
+      userDetails?.phone.length < 11
     ) {
       toast("All fields are required", {
         position: "top-right",
@@ -81,13 +75,12 @@ const Page = () => {
         "/api/save-to-sheet",
         {
           Email: userDetails?.email,
-          FirstName : userDetails?.firstName,
-          LastName : userDetails?.lastName,
+          FirstName: userDetails?.firstName,
+          LastName: userDetails?.lastName,
           Phone: userDetails?.phone,
           Gender: userDetails?.gender,
           Location: userDetails?.country,
           Dob: userDetails?.dob,
-          Password: userDetails?.password,
           Date: new Date().toISOString().split("T")[0], // Format: YYYY-MM-DD
         },
         {
@@ -109,26 +102,25 @@ const Page = () => {
           theme: "light",
         });
         setUserDetails({
-            firstName: "",
-            lastName: "",
-            email: "",
-            gender: "",
-            country: "",
-            dob: "",
-            password: "",
-            phone:""
-          });
-      } else{
+          firstName: "",
+          lastName: "",
+          email: "",
+          gender: "",
+          country: "",
+          dob: "",
+          phone: "",
+        });
+      } else {
         toast("Failed to join the waitlist", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
     } catch (err: any) {
       toast(err?.response?.data?.error || "An error occurred.", {
@@ -143,11 +135,21 @@ const Page = () => {
       });
     } finally {
       setLoading(false);
-     
     }
   };
 
-  React.useEffect(() => {}, [userDetails]);
+  const handlePhoneChange = (value: any) => {
+    const maxDigits = 14; // Customize the max digits for each country if needed
+    const digitsOnly = value.replace(/\D/g, ""); // Remove non-numeric characters
+
+    if (digitsOnly.length <= maxDigits) {
+      setUserDetails({ ...userDetails, phone: value });
+    }
+  };
+
+  React.useEffect(() => {
+    
+  }, [userDetails]);
 
   return (
     <div className="lg:h-[100vh] flex lg:flex-row flex-col gap-y-9 justify-between">
@@ -174,10 +176,10 @@ const Page = () => {
       <div className="flex flex-col items-center justify-center lg:w-[51%]">
         <div>
           <h2 className="text-[#101828] font-inter font-semibold lg:text-xl 2xl:text-3xl xl:text-2xl text-lg">
-            Create your account
+            Join The Institute Today
           </h2>
           <p className="text-[#667085] font-inter xl:text-base text-xs">
-          As Salaam Alaikum! Please fill in the details to get started.
+            As Salaam Alaikum! Please fill in the details to get started.
           </p>
         </div>
         <form
@@ -240,7 +242,7 @@ const Page = () => {
               }}
             />
           </span>
-          <span className=" flex flex-col xl:gap-2 gap-1">
+          {/* <span className=" flex flex-col xl:gap-2 gap-1">
             <label
               htmlFor="#phone"
               className="font-medium font-inter text-[#344054] xl:text-sm text-xs"
@@ -257,7 +259,36 @@ const Page = () => {
                 setUserDetails({ ...userDetails, phone: e.target.value });
               }}
             />
+          </span> */}
+          <span className="flex flex-col xl:gap-2 gap-1">
+            <label
+              htmlFor="#phone"
+              className="font-medium font-inter text-[#344054] xl:text-sm text-xs"
+            >
+              Phone
+            </label>
+            <div className="xl:h-[44px] lg:h-[40px] h-[35px] rounded-[6px] border border-[#D0D5DD] px-2">
+              <PhoneInput
+                value={userDetails?.phone}
+                onChange={handlePhoneChange}
+                enableSearch
+                placeholder="Enter phone number"
+                inputStyle={{
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  boxShadow: "none",
+                  fontSize: "14px",
+                  outline:0
+                  
+                }}
+                specialLabel=""
+                buttonStyle={{ border: "none", background: "transparent" }}
+                containerStyle={{ width: "98%", height: "98%" }}
+              />
+            </div>
           </span>
+
           <span className=" flex flex-col xl:gap-2 gap-1">
             <label
               htmlFor="#gender"
@@ -341,7 +372,7 @@ const Page = () => {
               </div>
             </div>
           </span>
-          <span className=" flex flex-col xl:gap-2 gap-1 w-[85%]">
+          {/* <span className=" flex flex-col xl:gap-2 gap-1 w-[85%]">
             <label
               htmlFor="#password"
               className="font-medium font-inter text-[#344054] xl:text-sm text-xs"
@@ -370,14 +401,18 @@ const Page = () => {
                 )}
               </div>
             </div>
-          </span>
-          <Button disabled={loading} type="submit" className="flex bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1">
+          </span> */}
+          <Button
+            disabled={loading}
+            type="submit"
+            className="flex bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1"
+          >
             {loading ? (
               <>
                 <Loader2 className="animate-spin" />
               </>
             ) : (
-              "Sign Up"
+              "Join the institute today"
             )}
           </Button>
           {/* <button className="bg-[#0DAC5C] text-white xl:p-3 p-2 rounded-[8px] hover:bg-green-700  font-semibold w-full text-center text-sm xl:text-base mt-1">

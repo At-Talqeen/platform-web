@@ -34,7 +34,6 @@ export async function POST(req: Request) {
           data.Gender,
           data.Location,
           data.Dob,
-          data.Password,
           data.Date
         
         ]],
