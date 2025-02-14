@@ -270,7 +270,8 @@ const Page = () => {
                 }}
                 placeholder="Enter phone number"
                 disableSearchIcon
-                showDropdown
+                country="ng"
+                showDropdown={false}
                 dropdownStyle={{
                   backgroundColor:"white"
                 }}
