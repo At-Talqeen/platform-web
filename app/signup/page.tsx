@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SignUpImage from "@/assets/signup.png";
 import Image from "next/image";
 import Calendar from "@/assets/caledar-dark.svg";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+// import { FiEye, FiEyeOff } from "react-icons/fi";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 import PhoneInput from "react-phone-input-2";
 
 const Page = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
+  // const [showPassword, setShowPassword] = React.useState(false);
   const [loading, setLoading] = useState(false);
 
   const validateEmail = () => {
