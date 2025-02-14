@@ -140,14 +140,6 @@ const Page = () => {
     }
   };
 
-  const handlePhoneChange = (value: any) => {
-    const maxDigits = 14; // Customize the max digits for each country if needed
-    const digitsOnly = value.replace(/\D/g, ""); // Remove non-numeric characters
-
-    if (digitsOnly.length <= maxDigits) {
-      setUserDetails({ ...userDetails, phone: value });
-    }
-  };
 
   React.useEffect(() => {
     // console.log(userDetails);
